@@ -7,11 +7,9 @@ import com.okBranding.back.dto.UsuarioResponseDTO;
 import com.okBranding.back.models.Credencial;
 import com.okBranding.back.models.Rol;
 import com.okBranding.back.models.Usuario;
-import com.okBranding.back.models.UsuarioRol;
 import com.okBranding.back.repository.CredencialRepository;
 import com.okBranding.back.repository.RolRepository;
 import com.okBranding.back.repository.UsuarioRepository;
-import com.okBranding.back.repository.UsuarioRolRepository;
 import com.okBranding.back.security.CustomUserDetailsService;
 import com.okBranding.back.security.JwtService;
 import com.okBranding.back.service.UsuarioService;
@@ -32,9 +30,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-
-    @Autowired
-    private UsuarioRolRepository usuarioRolRepository;
 
     @Autowired
     private CredencialRepository credencialRepository;
@@ -111,12 +106,6 @@ public class UsuarioServiceImpl implements UsuarioService {
             // Obtener rol CLIENTE
             Rol rolCliente = rolRepository.findByNombre(Constantes.ROL_CLIENTE)
                     .orElseThrow(() -> new RuntimeException(String.format("El rol %s no existe", Constantes.ROL_CLIENTE)));
-
-            // Asignar rol al usuario
-            UsuarioRol usuarioRol = new UsuarioRol();
-            usuarioRol.setUsuario(usuario);
-            usuarioRol.setRol(rolCliente);
-            usuarioRolRepository.save(usuarioRol);
 
             // Preparar respuesta
             UsuarioResponseDTO responseDTO = new UsuarioResponseDTO();

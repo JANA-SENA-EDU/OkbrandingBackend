@@ -26,8 +26,9 @@ public class Usuario {
     @JoinColumn(name = "id_credencial", nullable = false)
     private Credencial credencial;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UsuarioRol> usuarioRoles;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_rol", nullable = false)
+    private Rol rol;
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -77,11 +78,12 @@ public class Usuario {
         this.credencial = credencial;
     }
 
-    public List<UsuarioRol> getUsuarioRoles() {
-        return usuarioRoles;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setUsuarioRoles(List<UsuarioRol> usuarioRoles) {
-        this.usuarioRoles = usuarioRoles;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
+
 }

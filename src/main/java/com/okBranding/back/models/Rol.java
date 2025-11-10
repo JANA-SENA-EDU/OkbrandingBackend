@@ -15,12 +15,6 @@ public class Rol {
     @Column(name = "nombre", length = 50, nullable = false, unique = true)
     private String nombre;
 
-    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UsuarioRol> usuarioRoles;
-
-    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<RolPermiso> rolPermisos;
-
     public Integer getIdRol() {
         return idRol;
     }
@@ -37,19 +31,5 @@ public class Rol {
         this.nombre = nombre;
     }
 
-    public List<UsuarioRol> getUsuarioRoles() {
-        return usuarioRoles;
-    }
 
-    public void setUsuarioRoles(List<UsuarioRol> usuarioRoles) {
-        this.usuarioRoles = usuarioRoles;
-    }
-
-    public List<RolPermiso> getRolPermisos() {
-        return rolPermisos;
-    }
-
-    public void setRolPermisos(List<RolPermiso> rolPermisos) {
-        this.rolPermisos = rolPermisos;
-    }
 }

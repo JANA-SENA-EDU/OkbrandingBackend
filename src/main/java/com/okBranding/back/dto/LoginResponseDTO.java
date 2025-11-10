@@ -1,9 +1,5 @@
 package com.okBranding.back.dto;
 
-import com.okBranding.back.models.UsuarioRol;
-
-import java.util.List;
-
 public class LoginResponseDTO {
     private String token;
     private String userName;

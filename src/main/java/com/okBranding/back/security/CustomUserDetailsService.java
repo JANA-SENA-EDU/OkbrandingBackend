@@ -28,9 +28,11 @@ public class CustomUserDetailsService implements UserDetailsService {
         return User.builder()
                 .username(usuario.getCredencial().getNombreUsuario())
                 .password(usuario.getCredencial().getPassword())
-                .authorities(usuario.getUsuarioRoles().stream()
-                        .map(usuarioRol -> new SimpleGrantedAuthority("ROLE_" + usuarioRol.getRol().getNombre()))
-                        .collect(Collectors.toList()))
+                .authorities(
+                        java.util.List.of(
+                                new SimpleGrantedAuthority("ROLE_" + usuario.getRol().getNombre())
+                        )
+                )
                 .build();
     }
 }
