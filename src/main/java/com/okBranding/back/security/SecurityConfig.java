@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/okBranding/usuarios/**",
+                                "/okBranding/auth/**",
                                 "/okBranding/categorias/**",
                                 "/okBranding/estado-producto/**",
                                 "/swagger-ui/**",

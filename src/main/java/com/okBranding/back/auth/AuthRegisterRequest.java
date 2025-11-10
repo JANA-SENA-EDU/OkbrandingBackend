@@ -1,20 +1,13 @@
-package com.okBranding.back.dto;
+package com.okBranding.back.auth;
 
-public class UsuarioRequestDTO {
+public class AuthRegisterRequest {
     private String correo;
     private String nombre;
     private String telefono;
-    private Boolean activo;
+    private String username;
+    private String password;
 
     // Getters y setters
-    public Boolean getActivo() {
-        return activo;
-    }
-
-    public void setActivo(Boolean activo) {
-        this.activo = activo;
-    }
-
     public String getCorreo() {
         return correo;
     }
@@ -37,5 +30,21 @@ public class UsuarioRequestDTO {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

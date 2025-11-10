@@ -21,34 +21,6 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @PostMapping("/registrar")
-    public ResponseEntity<Map<String, Object>> registrarUsuario(@RequestBody UsuarioRequestDTO usuarioRequestDTO) {
-        Map<String, Object> respuesta = usuarioService.registrarUsuario(usuarioRequestDTO);
-
-        boolean exitoso = (boolean) respuesta.get("exitoso");
-        if (exitoso) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(respuesta);
-        }
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequestDTO loginRequestDTO) {
-        Map<String, Object> respuesta = usuarioService.login(loginRequestDTO);
-
-        if (Boolean.TRUE.equals(respuesta.get("exitoso"))) {
-            return ResponseEntity.ok(respuesta);
-        } else if ("Nombre de Usuario incorrecto o no registrado".equals(respuesta.get("message")) ||
-                "Contraseña incorrecta".equals(respuesta.get("message"))) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(respuesta);
-        } else if ("El usuario no está activo comuniquese con las lineas de información proporcionadas".equals(respuesta.get("message"))) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(respuesta);
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(respuesta);
-        }
-    }
-
     @GetMapping("/listar")
     public ResponseEntity<List<UsuarioResponseDTO>> listarUsuarios() {
         List<UsuarioResponseDTO> usuarios = usuarioService.listarUsuarios();
