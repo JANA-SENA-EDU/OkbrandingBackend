@@ -1,6 +1,7 @@
 package com.okBranding.back.auth;
 
 public class AuthResponse {
+    private Integer idUsuario;
     private String token;
     private String userName;
     private String nombre;
@@ -11,13 +12,22 @@ public class AuthResponse {
     public AuthResponse() {
     }
 
-    public AuthResponse(String token, String userName, String nombre, String correo, String telefono, String rol) {
+    public AuthResponse(Integer idUsuario, String token, String userName, String nombre, String correo, String telefono, String rol) {
+        this.idUsuario = idUsuario;
         this.token = token;
         this.userName = userName;
         this.nombre = nombre;
         this.correo = correo;
         this.telefono = telefono;
         this.rol = rol;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getToken() {

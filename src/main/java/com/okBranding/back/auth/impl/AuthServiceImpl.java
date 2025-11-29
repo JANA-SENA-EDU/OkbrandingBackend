@@ -76,7 +76,8 @@ public class AuthServiceImpl implements AuthService {
         String token = jwtService.generateToken(userDetails);
 
         // Devolver respuesta
-        return new AuthResponse(token,
+        return new AuthResponse(usuario.getIdUsuario(),
+                token,
                 credencial.getNombreUsuario(),
                 usuario.getNombre(),
                 usuario.getCorreo(),
@@ -108,7 +109,8 @@ public class AuthServiceImpl implements AuthService {
         String token = jwtService.generateToken(userDetails);
 
         // Devolver respuesta
-        return new AuthResponse(token,
+        return new AuthResponse(usuario.getIdUsuario(),
+                token,
                 credencial.getNombreUsuario(),
                 usuario.getNombre(),
                 usuario.getCorreo(),
