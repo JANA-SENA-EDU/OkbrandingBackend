@@ -47,7 +47,7 @@ public class SecurityConfig {
                                 "/okBranding/colores/**",
                                 "/okBranding/productos/**",
                                 "/actuator/**",
-                                "/okBranding/cotizaciones/**"
+                                "/cotizaciones/**"
                         ).permitAll()
                         .anyRequest().authenticated() // El resto requiere autenticación
                 )
