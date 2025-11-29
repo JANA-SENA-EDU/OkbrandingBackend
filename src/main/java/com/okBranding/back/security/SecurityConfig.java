@@ -45,11 +45,10 @@ public class SecurityConfig {
                                 "/okBranding/estado-producto/**",
                                 "/swagger-ui/**",
                                 "/okBranding/colores/**",
-                                "okBranding/productos/**",
+                                "/okBranding/productos/**",
                                 "/actuator/**",
                                 "/okBranding/cotizaciones/**"
-
-                                ).permitAll()
+                        ).permitAll()
                         .anyRequest().authenticated() // El resto requiere autenticación
                 )
                 .userDetailsService(customUserDetailsService) // Usamos nuestro servicio personalizado
